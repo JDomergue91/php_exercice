@@ -1,7 +1,20 @@
 <?php
-	$TitrePage = 'exo de PHP';
-	$DescriptionPage = 'C\'est de la lolade !';
-	$KeywordsPage = 'ce,que,tu,veux';
+	$TitrePage = 'Super exo de PHP'; 
+    $DescriptionPage = 'Ca va être bien';
+    $KeywordsPage = 'rigolo,rigolade';
+    
+    $CheminUrl = $_SERVER['REQUEST_URI'];
+    
+    $PageCourante = array_search($CheminUrl, array_column($menu, 'link'));
+    
+    
+    if ($PageCourante !== false) {
+    
+    $CleMenu = array_keys($menu);
+    $TitrePage = $menu[$CleMenu[$PageCourante]]['titre'];
+    $DescriptionPage = $menu[$CleMenu[$PageCourante]]['description'];
+    $KeywordsPage = $menu[$CleMenu[$PageCourante]]['keywords'];
+    };
 ?>
 
 <!DOCTYPE html>
